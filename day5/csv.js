@@ -31,4 +31,4 @@ function readCsv(filePath) {
 
 module.exports = readCsv;
 
-readCsv("./csv/lang.csv");
+// readCsv("./csv/lang.csv");
