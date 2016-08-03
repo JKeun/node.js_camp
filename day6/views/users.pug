@@ -1,0 +1,22 @@
+extends ./base
+
+
+block content
+    h1 Users List ( #{users.length} 명 )
+
+    if (search)
+        p "#{search}"에 대한 검색 결과입니다.
+
+    form(action="/users/" method="GET")
+        input(type="text" name="search")
+        input(type="submit" value="검색")
+
+    ul
+        each user in users
+            li #{user.name} | #{user.email} | #{user.phonenumber}
+
+    form(action="/users/" method="POST")
+        input(type="text" name="name" placeholder="이름")
+        input(type="email" name="email" placeholder="이메일")
+        input(type="text" name="phonenumber" placeholder="연락처")
+        input(type="submit" value="추가")
