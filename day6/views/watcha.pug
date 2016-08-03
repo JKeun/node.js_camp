@@ -1,0 +1,20 @@
+extends ./base
+
+
+block content
+    h1 Watcha News!!!
+    p 총 #{newsItems.length} 개의 영화 정보가 있습니다.
+
+    if query
+        p "#{query}" 에 대한 검색 결과입니다.
+
+    form(action="/watcha/" method="GET")
+        input(type="text" name="query" value=query placeholder="검색어")
+        input(type="submit" value="검색")
+
+    ul
+        each newsItem in newsItems
+            li
+                img(src=newsItem.image)
+                h2 제목: #{newsItem.title}
+                p= newsItem.content
